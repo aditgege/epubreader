@@ -1,17 +1,10 @@
 <template>
   <div class="w-full flex  items-center justify-center pt-3">
-    <div class="flex items-center justify-center flex-col w-4/12">
-      <div>
-        <!-- {{ currentPage }} / {{ pageCount }} -->
-      </div>
-      <!-- <Fwturn ref="test" :options="options"> -->
-      <Pdf
-        class="border border-2 border-black"
-        src="/cerita.pdf"
-        :page="displayPage"
-        @num-pages="pageCount = $event"
-        @page-loaded="currentPage = $event"
-      />
+    <div class="flex items-center h-screen justify-center flex-col w-4/12">
+      pilih buku pin, ini format epub yaah
+      <button v-for="book, i in books" :key="i" :to="book.url" class="bg-black text-white my-3 px-4 py-2 shadow-md " @click="openBook(book.url)">
+        {{ book.name }}
+      </button>
     </div>
   </div>
 </template>
@@ -21,20 +14,16 @@
 export default {
   data () {
     return {
-      currentPage: 0,
-      pageCount: 0,
-      displayPage: 1,
-      options: {
-        display: 'single',
-        acceleration: true,
-        elevation: 50
-      }
+      books: [
+        { name: 'Moby Dick', url: '/reader/index.html' },
+        { name: 'Alice', url: '/reader/index.html?bookPath=https://s3.amazonaws.com/epubjs/books/alice.epub' }
+      ]
     }
   },
   methods: {
-    testyu () {
-      this.displayPage++
-      this.$refs.test.next()
+    openBook (url) {
+      // this.$router.push(url)
+      window.open(url, '_blank')
     }
   }
 }
