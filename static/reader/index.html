@@ -21,9 +21,13 @@
 
             document.onreadystatechange = function () {
               if (document.readyState == "complete") {
-                window.reader = ePubReader("https://s3.amazonaws.com/moby-dick/", {
-                   restore: true
-                 });
+                // window.reader = ePubReader("https://s3.amazonaws.com/moby-dick/", {
+                //    restore: true
+                //  });
+
+                window.reader = ePubReader("khazanah.epub", {
+                  restore: true
+                })
               }
             };
 
