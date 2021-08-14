@@ -147,9 +147,9 @@ function getViewerConfiguration() {
       zoomOut: document.getElementById('zoomOut'),
       viewFind: document.getElementById('viewFind'),
       openFile: document.getElementById('openFile'),
-      print: document.getElementById('print'),
+      // print: document.getElementById('print'),
       presentationModeButton: document.getElementById('presentationMode'),
-      download: document.getElementById('download'),
+      // download: document.getElementById('download'),
       viewBookmark: document.getElementById('viewBookmark')
     },
     secondaryToolbar: {
@@ -158,8 +158,8 @@ function getViewerConfiguration() {
       toolbarButtonContainer: document.getElementById('secondaryToolbarButtonContainer'),
       presentationModeButton: document.getElementById('secondaryPresentationMode'),
       openFileButton: document.getElementById('secondaryOpenFile'),
-      printButton: document.getElementById('secondaryPrint'),
-      downloadButton: document.getElementById('secondaryDownload'),
+      // printButton: document.getElementById('secondaryPrint'),
+      // downloadButton: document.getElementById('secondaryDownload'),
       viewBookmarkButton: document.getElementById('secondaryViewBookmark'),
       firstPageButton: document.getElementById('firstPage'),
       lastPageButton: document.getElementById('lastPage'),
@@ -1760,7 +1760,6 @@ var validateFileURL;
       if (origin !== viewerOrigin && protocol !== 'blob:') {
         throw new Error('file origin does not match viewer\'s');
       }
-      debugger
     } catch (ex) {
       var message = ex && ex.message;
       PDFViewerApplication.l10n.get('loading_error', null, 'An error occurred while loading the PDF.').then(function (loadingErrorMessage) {
@@ -12627,23 +12626,25 @@ function () {
     this.toolbar = options.toolbar;
     this.toggleButton = options.toggleButton;
     this.toolbarButtonContainer = options.toolbarButtonContainer;
+    // {
+    //   element: options.printButton,
+    //   eventName: 'print',
+    //   close: true
+    // }, {
+    //   element: options.downloadButton,
+    //   eventName: 'download',
+    //   close: true
+    // }
+    // {
+    //   element: options.openFileButton,
+    //   eventName: 'openfile',
+    //   close: true
+    // }
     this.buttons = [{
       element: options.presentationModeButton,
       eventName: 'presentationmode',
       close: true
-    }, {
-      element: options.openFileButton,
-      eventName: 'openfile',
-      close: true
-    }, {
-      element: options.printButton,
-      eventName: 'print',
-      close: true
-    }, {
-      element: options.downloadButton,
-      eventName: 'download',
-      close: true
-    }, {
+    },{
       element: options.viewBookmarkButton,
       eventName: null,
       close: true
@@ -13254,21 +13255,21 @@ function () {
           source: self
         });
       });
-      items.openFile.addEventListener('click', function () {
-        eventBus.dispatch('openfile', {
-          source: self
-        });
-      });
-      items.print.addEventListener('click', function () {
-        eventBus.dispatch('print', {
-          source: self
-        });
-      });
-      items.download.addEventListener('click', function () {
-        eventBus.dispatch('download', {
-          source: self
-        });
-      });
+      // items.openFile.addEventListener('click', function () {
+      //   eventBus.dispatch('openfile', {
+      //     source: self
+      //   });
+      // });
+      // items.print.addEventListener('click', function () {
+      //   eventBus.dispatch('print', {
+      //     source: self
+      //   });
+      // });
+      // items.download.addEventListener('click', function () {
+      //   eventBus.dispatch('download', {
+      //     source: self
+      //   });
+      // });
       items.scaleSelect.oncontextmenu = _ui_utils.noContextMenuHandler;
       eventBus.on('localized', function () {
         _this._localized();
