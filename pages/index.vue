@@ -16,6 +16,7 @@ export default {
     return {
       books: [
         { name: 'flipbook', url: '/pdf-viewer-master/external/pdfjs-2.1.266-dist/web/viewer.html?file=cerita.pdf' },
+        { name: 'Cross Domain', url: '/pdf-viewer-master/external/pdfjs-2.1.266-dist/web/viewer.html?https://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pdf' },
         { name: 'Khazanah', url: '/reader/index.html' },
         { name: 'Moby Dick', url: '/reader/index.html?bookPath=https://s3.amazonaws.com/moby-dick/' },
         { name: 'Alice', url: '/reader/index.html?bookPath=https://s3.amazonaws.com/epubjs/books/alice.epub' }
